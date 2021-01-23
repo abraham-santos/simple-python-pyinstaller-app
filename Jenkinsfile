@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             agent any
             steps {
-                sh 'python3 -m py_compile sources/add2vals.py sources/calc.py'
+                sh 'pyinstaller add2vals.py -F'
                 stash(name: 'compiled-results', includes: 'sources/*.py*')
             }
         }
